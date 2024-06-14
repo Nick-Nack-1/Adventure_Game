@@ -15,26 +15,8 @@ class map():
         self.offset_x = TILE_SIZE
         self.offset_y = TILE_SIZE
 
-        # self.startUp()
     
 
-    def startUp(self):
-        i = self.tmxdata.get_tile_properties(1,1,GROUND)
-        j = i['colliders'][0].as_points[0].x
-        j = len(i['colliders'])
-        y_map_size = self.tmxdata.height
-        x_map_size = self.tmxdata.width
-        for layer in range(len(self.tmxdata.layernames)):
-            Layer = self.tmxdata.layers[layer]
-            if Layer.__dict__["class"] == "Tile":
-                for y in range(y_map_size):
-                    for x in range(x_map_size):
-                        tile = self.tmxdata.get_tile_properties(x, y, layer)
-                        if tile != None:
-                            print(tile)
-                            if "Collideable" in tile:
-                                if tile["Collideable"]:
-                                    print(x,",",y)
 
     def render(self):
         for y in range(MAP_SIZE_Y):
