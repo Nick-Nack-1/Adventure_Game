@@ -1,0 +1,26 @@
+##MAP
+TILE_SIZE = 32
+SCREEN_HEIGHT = 32*11 #480
+SCREEN_WIDTH = 32*19
+BACKGROUND_COLOUR = (255,0,255)
+
+MAP_SIZE_X = 17 ##The size in tiles of the map on screen
+MAP_SIZE_Y = 13 ##The size in tiles of the map on screen
+
+WATER = 0
+GROUND = 1
+COLLIDERS = 2
+FOLAGE = 3
+PLR_BUILD = 4
+PLR_SPAWN = 5
+
+LAYER_LIST =[WATER, GROUND, COLLIDERS, FOLAGE, PLR_BUILD]
+
+##MAIN LOOP
+INTRO = 0
+MENU = 1
+PLAY = 2
+DEAD = 3
+
+##PLAYER
+SPEED = 2

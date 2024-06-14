@@ -1,0 +1,78 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Assets/Turf_1.tsx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "Assets/Folage_1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Assets/Turf_1.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/nlste/Downloads/Forest.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 836.6666666666666,
+                "y": 420
+            }
+        },
+        "C:/Users/nlste/Downloads/Forest.tmx#Paths": {
+            "scaleInDock": 1
+        },
+        "C:/Users/nlste/Downloads/Forest.tmx#outdoors": {
+            "scaleInDock": 1
+        },
+        "C:/Users/nlste/Downloads/Forest.tmx#untitled tile sheet2": {
+            "scaleInDock": 1
+        },
+        "Maps/Test1.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 831.6666666666666,
+                "y": 831.6666666666666
+            }
+        },
+        "Resources/Ground_1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Resources/Turf_1.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 3,
+            "scaleInEditor": 1.5
+        }
+    },
+    "last.imagePath": "C:/Nicolaas/Git_Hub/Adventure-game/Assets",
+    "last.objectTemplatePath": "C:/Nicolaas/Git_Hub/Adventure-game/Assets",
+    "map.height": 30,
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "Assets/Turf_1.tsx",
+        "Maps/Test1.tmx",
+        "Assets/Folage_1.tsx"
+    ],
+    "project": "Adventure_Game.tiled-project",
+    "property.type": "int",
+    "recentFiles": [
+        "Assets/Folage_1.tsx",
+        "Maps/Test1.tmx",
+        "Assets/Turf_1.tsx",
+        "Resources/Turf_1.tsx",
+        "Resources/Ground_1.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 32,
+        "width": 32
+    }
+}
