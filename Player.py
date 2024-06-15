@@ -27,8 +27,8 @@ class Player(pygame.sprite.Sprite):
     
     def update(self):
         if self.mouse.pressed("Left"):
-            pos = [int((self.map_x+TILE_SIZE)/TILE_SIZE),
-                   int((self.map_y+TILE_SIZE)/TILE_SIZE)]
+            pos = [int((self.map_x)/TILE_SIZE),
+                   int((self.map_y)/TILE_SIZE)]
             self.map.Break(pos,
                            GROUND)
 

@@ -2,7 +2,7 @@
 TILE_SIZE = 32
 SCREEN_HEIGHT = 32*11 #480
 SCREEN_WIDTH = 32*19
-BACKGROUND_COLOUR = (255,0,255)
+BACKGROUND_COLOUR = (0,0,255)
 
 SCREEN_SIZE_X = 17 ##The size in tiles of the map on screen
 SCREEN_SIZE_Y = 13 ##The size in tiles of the map on screen
