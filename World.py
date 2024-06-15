@@ -15,24 +15,18 @@ class map():
         self.offset_x = TILE_SIZE
         self.offset_y = TILE_SIZE
 
+        # self.Break([0,0], Layer_nom=0)
+
     
 
 
     def render(self):
-        for y in range(MAP_SIZE_Y):
-            for x in range(MAP_SIZE_X):
+        for y in range(SCREEN_SIZE_Y):
+            for x in range(SCREEN_SIZE_X):
                 x_off_mod = (self.offset_x%TILE_SIZE)
                 y_off_mod = int(self.offset_y%TILE_SIZE)
                 tile_x = int(x+self.offset_x/TILE_SIZE)
                 tile_y = int(y+self.offset_y//TILE_SIZE)
-                ##WATER
-                tile_img = self.tmxdata.get_tile_image(tile_x,
-                                                       tile_y,
-                                                       WATER)
-                if tile_img != None:
-                    self.screen.blit(tile_img, 
-                                    (x*TILE_SIZE-x_off_mod, 
-                                    y*TILE_SIZE-y_off_mod))
                     
                 ##GROUND
                 tile_img = self.tmxdata.get_tile_image(tile_x,
@@ -71,8 +65,8 @@ class map():
         ##plr_pos = (x,y): screen pos
         Play_A_x = (self.WIDTH-2)*TILE_SIZE ##PLAYABLE_AREA_X
         Play_A_y = (self.HEIGHT-2)*TILE_SIZE ##PLAYABLE_AREA_Y
-        centre_off = [plr_pos[0]-(MAP_SIZE_X/2)*TILE_SIZE
-                    ,plr_pos[1]-(MAP_SIZE_Y/2)*TILE_SIZE] #Centre offset of the player(screen offset)
+        centre_off = [plr_pos[0]-(SCREEN_SIZE_X/2)*TILE_SIZE
+                    ,plr_pos[1]-(SCREEN_SIZE_Y/2)*TILE_SIZE] #Centre offset of the player(screen offset)
 
         Move_per_x = (centre_off[0]/(TILE_SIZE*15))*100 #Calculates per. for x-axesses movement
         # Move_per_x = ((centre_off[0]*centre_off[0])/(TILE_SIZE*225))*25 #Calculates per. for x-axesses movementw
@@ -95,16 +89,16 @@ class map():
             self.offset_x += centre_off[0]/100*Move_per_x
         if self.offset_x < TILE_SIZE: #Left Map Boundry
             self.offset_x = TILE_SIZE
-        elif self.offset_x+(MAP_SIZE_X)*32 > Play_A_x: #Right Map Boundry
-            self.offset_x = Play_A_x-(MAP_SIZE_X)*32
+        elif self.offset_x+(SCREEN_SIZE_X)*32 > Play_A_x: #Right Map Boundry
+            self.offset_x = Play_A_x-(SCREEN_SIZE_X)*32
 
         ## Y        
         if self.offset_y >= TILE_SIZE and self.offset_y <= Play_A_y:
             self.offset_y += centre_off[1]/100*Move_per_y
         if self.offset_y < TILE_SIZE: #Top Map Boundry
             self.offset_y = TILE_SIZE
-        elif self.offset_y+(MAP_SIZE_Y)*32 > Play_A_y: #Bottom Map Boundry
-            self.offset_y = Play_A_y-(MAP_SIZE_Y)*32
+        elif self.offset_y+(SCREEN_SIZE_Y)*32 > Play_A_y: #Bottom Map Boundry
+            self.offset_y = Play_A_y-(SCREEN_SIZE_Y)*32
     
     def collide(self, rect, pos):
         #rect = (sprite_x_width, sprite_y_width)
@@ -126,7 +120,7 @@ class map():
         BR_tile_pos = (int(BR_collide[0]/TILE_SIZE), int(BR_collide[1]/TILE_SIZE))
         collide_tiles = [TL_tile_pos, BL_tile_pos, TR_tile_pos, BR_tile_pos]
 
-        for index in range(4):
+        for index in range(4): #For each of the 4 corners and their tiles
             point = collide_points[index]
             tile = collide_tiles[index]
             for layer in LAYER_LIST:
@@ -138,12 +132,19 @@ class map():
                         collider = collider['colliders']  #GETS COLLISION BOX
                         for c in collider:
                             box_TL = (c.x+ tile[0]*TILE_SIZE,
-                                      c.y+ tile[1]*TILE_SIZE) #Top Left of tile collision box
+                                      c.y+ tile[1]*TILE_SIZE)  #Top Left of tile collision box
                             box_BR = (box_TL[0]+c.width,
-                                      box_TL[1]+c.height)
+                                      box_TL[1]+c.height)  #Bottom Right of the collision box
                             if point[0] >= box_TL[0] and point[1] >= box_TL[1]:
                                 if point[0] <= box_BR[0] and point[1] <= box_BR[1]:
                                     return True
+    
+
+
+    def Break(self, pos, Layer_nom):
+        #pos = (x,y) of tile want to break
+        layer = self.tmxdata.get_layer_by_name(LAYER_NAMES[Layer_nom])
+        layer.data[pos[1]][pos[0]] = 0
                             
                 
 

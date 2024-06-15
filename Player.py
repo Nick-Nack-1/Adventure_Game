@@ -1,6 +1,7 @@
 from Globals import *
 import pygame
 import sprite_sheet
+import Inputs
 
 
 class Player(pygame.sprite.Sprite):
@@ -19,9 +20,18 @@ class Player(pygame.sprite.Sprite):
         self.screen_x = 0
         self.screen_y = 0
         self.move_dir = [0,0] #[x_movement, y_movement]
-        self.deg_rot = 0
+        self.deg_rot = 0 #degrees rotated
+
+        ##NOT DIRECTLY PLR
+        self.mouse = Inputs.Mouse()
     
     def update(self):
+        if self.mouse.pressed("Left"):
+            pos = [int((self.map_x+TILE_SIZE)/TILE_SIZE),
+                   int((self.map_y+TILE_SIZE)/TILE_SIZE)]
+            self.map.Break(pos,
+                           GROUND)
+
         x_move = 0
         y_move = 0
         if self.move_dir[0] != 0 and self.move_dir[1] != 0:
@@ -95,13 +105,3 @@ class Player(pygame.sprite.Sprite):
                     self.move_dir[1] = 0
                 if event.key == pygame.K_s:
                     self.move_dir[1] = 0
-        # ## X_MOVEMENT
-        # if event.key == pygame.K_a:
-        #     self.move_dir[0] = -1
-        # if event.key == pygame.K_d:
-        #     self.move_dir[0] = 1
-        # ## Y_MOVEMENT
-        # if event.key == pygame.K_w:
-        #     self.move_dir[1] = -1
-        # if event.key == pygame.K_s:
-        #     self.move_dir[1] = 1
